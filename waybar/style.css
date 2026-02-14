@@ -1,0 +1,129 @@
+/* General bar*/
+
+window#waybar {
+  background: #24273a;
+  color: #cad3f5;
+  padding: 2px 15px;
+  border: 3px solid #e0bbe4;
+  border-radius: 20px;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 14px;
+  min-height: 35px;
+}
+
+#workspaces button {
+  all: unset;
+  min-width: 10px;
+  min-height: 10px;
+  margin: 12px 3px;
+  background-color: #45485c;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+#workspaces button.active,
+#workspaces button.visible {
+  background-color: #e0bbe4;
+  min-width: 12px;
+  min-height: 12px;
+  margin: 11px 3px;
+}
+
+#custom-separator {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+#custom-os-tooltip {
+  min-width: 13px;
+  color: #e0bbe4;
+}
+
+#tray {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  background-color: transparent;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #e0bbe4;
+}
+
+decoration {
+  box-shadow: none;
+  background: transparent;
+}
+
+menu {
+  background: #24283b; /* Match your bar color */
+  border: 2px solid #e0bbe4;
+  border-radius: 20px;
+  box-shadow: none;
+  text-shadow: none;
+  margin: 0;
+  padding: 5px;
+  background-clip: padding-box;
+  -gtk-outline-radius: 20px;
+  box-shadow: none;
+}
+
+menu box {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+window.background.popup,
+window.background.device-menu,
+window.popup {
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+/* Force color on everything inside a menu */
+menuitem *,
+menu * {
+  color: #e0bbe4;
+}
+
+/* Ensure any labels specifically are caught */
+menu label,
+menuitem label {
+  color: #e0bbe4;
+}
+
+menu item:disabled,
+menu item:disabled label {
+  color: #585b70; /* A darker purple for disabled items */
+}
+
+/* This targets the 'button' or 'check' indicators in the menu */
+menu check,
+menu radio {
+  color: #e0bbe4;
+}
+
+/* Hover effect for the menu items */
+menu item:hover {
+  background: #24273a;
+  color: #e0bbe4;
+}
+
+.modules-right {
+  margin-right: 10px;
+}
+
+.modules-left {
+  margin-left: 10px;
+}
