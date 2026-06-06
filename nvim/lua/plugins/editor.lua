@@ -45,4 +45,13 @@ return
       end,
    },
 
+   {
+    "Cyan903/gremlins.nvim",
+    config = function()
+        require("gremlins").setup({
+            -- automatically scans and highlights on opening a buffer
+        })
+    end,
+   }
+
 }

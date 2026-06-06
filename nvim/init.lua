@@ -2,11 +2,33 @@ vim.g.mapleader = " "
 
 require("config.lazy")
 
-vim.opt.expandtab = true   -- Converts tabs to spaces
-vim.opt.tabstop = 3        -- Visual width of a tab
-vim.opt.softtabstop = 3    -- Width of a tab when editing
-vim.opt.shiftwidth = 3     -- Width of auto-indent
+vim.diagnostic.config({
+	virtual_text = true, -- Shows a summary next to the code
+	float = {
+		header = " Diagnostics:",
+		source = "always", -- Tells you if it's clangd or a compiler error
+		border = "rounded",
+		focusable = true, -- Allows you to tab into the window to scroll/copy
+	},
+})
+
+vim.g.sleuth_enabled = 0 -- Disable auto-detection
+vim.opt.expandtab = true -- Converts tabs to spaces
+vim.opt.tabstop = 3 -- Visual width of a tab
+vim.opt.softtabstop = 3 -- Width of a tab when editing
+vim.opt.shiftwidth = 3 -- Width of auto-indent
 vim.opt.laststatus = 3 -- One statusline at the bottom instead of one per window
+
+-- Force C files to follow these rules (Overriding system defaults)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp", "h", "hpp" },
+	callback = function()
+		vim.opt_local.shiftwidth = 3
+		vim.opt_local.tabstop = 3
+		vim.opt_local.softtabstop = 3
+		vim.opt_local.expandtab = true
+	end,
+})
 
 vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
@@ -14,19 +36,19 @@ vim.api.nvim_set_hl(0, "StatusLine", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none", ctermbg = "none" })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  nested = true,
-  callback = function()
-    if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
-      vim.cmd "quit"
-    end
-  end
+	nested = true,
+	callback = function()
+		if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+			vim.cmd("quit")
+		end
+	end,
 })
 
 vim.wo.number = true
 
 vim.diagnostic.config({
-  update_in_insert = true, -- Updates errors while you type
-  severity_sort = true,
+	update_in_insert = true, -- Updates errors while you type
+	severity_sort = true,
 })
 
 -- Change how often the LSP updates (default is 4000ms)
