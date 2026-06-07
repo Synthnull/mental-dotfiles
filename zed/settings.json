@@ -1,0 +1,46 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_ui_font_size": 15.0,
+  "ui_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_weight": 550.0,
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-blur": true,
+    "catppuccin-icons": true,
+    "clojure": true,
+    "git-firefly": true,
+    "html": true,
+    "zig": true,
+  },
+  "outline_panel": {
+    "dock": "left",
+    "button": true,
+  },
+  "project_panel": {
+    "indent_size": 20.0,
+    "dock": "left",
+  },
+  "autosave": "on_focus_change",
+  "vim_mode": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+
+  // Theme & Icons
+  "theme": "Catppuccin Mocha",
+  "icon_theme": "Catppuccin Mocha",
+
+  // Typography (Loosened up for scannability)
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
+  "buffer_line_height": "standard",
+}
